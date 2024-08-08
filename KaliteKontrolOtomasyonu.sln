@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34525.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KaliteKontrolOtomasyonu", "KaliteKontrolOtomasyonu\KaliteKontrolOtomasyonu.csproj", "{0FC1FC5E-89EB-4714-B68F-0AB000AB5DDB}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Kalite Kontrol Otomasyonu Setup", "Kalite Kontrol Otomasyonu Setup\Kalite Kontrol Otomasyonu Setup.vdproj", "{3AC80BE8-F231-49A4-B787-421020996B1F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0FC1FC5E-89EB-4714-B68F-0AB000AB5DDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FC1FC5E-89EB-4714-B68F-0AB000AB5DDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FC1FC5E-89EB-4714-B68F-0AB000AB5DDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FC1FC5E-89EB-4714-B68F-0AB000AB5DDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AC80BE8-F231-49A4-B787-421020996B1F}.Debug|Any CPU.ActiveCfg = Debug
+		{3AC80BE8-F231-49A4-B787-421020996B1F}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {844F418E-1E8A-48EE-9F3E-1349CF5C70B9}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="KaliteKontrolOtomasyonuModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="calisanBilgileri">
+          <Key>
+            <PropertyRef Name="Calisan_Id" />
+          </Key>
+          <Property Name="Calisan_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Calisan_Adi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Calisan_Soyadi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Calisan_Tc" Type="nvarchar" MaxLength="11" />
+          <Property Name="Calisan_Rol" Type="nvarchar" MaxLength="10" />
+          <Property Name="Calisan_KullaniciAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Calisan_Sifre" Type="nvarchar" MaxLength="50" />
+          <Property Name="Calisan_TelNo" Type="nvarchar" MaxLength="11" />
+          <Property Name="Calisan_Eposta" Type="nvarchar" MaxLength="50" />
+          <Property Name="Calisan_Adres" Type="text" />
+          <Property Name="Calisan_EnSonGiris" Type="datetime" />
+          <Property Name="Calisan_EklenmeTarihi" Type="datetime" />
+        </EntityType>
+        <EntityType Name="numuneBilgileri">
+          <Key>
+            <PropertyRef Name="urun_Id" />
+          </Key>
+          <Property Name="urun_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="urun_Tarihi" Type="datetime" />
+          <Property Name="urun_Kodu" Type="nvarchar" MaxLength="50" />
+          <Property Name="urun_MPS" Type="nvarchar" MaxLength="50" />
+          <Property Name="urun_Adi" Type="nvarchar" MaxLength="50" />
+          <Property Name="urun_Firmasi" Type="nvarchar" MaxLength="50" />
+          <Property Name="urun_OnayDurumu" Type="nvarchar" MaxLength="50" />
+          <Property Name="urun_OnaylayanKisi" Type="nvarchar" MaxLength="50" />
+          <Property Name="urun_Aciklama" Type="text" />
+        </EntityType>
+        <EntityContainer Name="KaliteKontrolOtomasyonuModelStoreContainer">
+          <EntitySet Name="calisanBilgileri" EntityType="Self.calisanBilgileri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="numuneBilgileri" EntityType="Self.numuneBilgileri" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KaliteKontrolOtomasyonuModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="KaliteKontrolOtomasyonuEntities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(KaliteKontrolOtomasyonuModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(KaliteKontrolOtomasyonuModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <EntitySet Name="calisanBilgileri" EntityType="KaliteKontrolOtomasyonuModel.calisanBilgileri" />
+          <EntitySet Name="numuneBilgileri" EntityType="KaliteKontrolOtomasyonuModel.numuneBilgileri" />
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="calisanBilgileri">
+          <Key>
+            <PropertyRef Name="Calisan_Id" />
+          </Key>
+          <Property Name="Calisan_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Calisan_Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Calisan_Soyadi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Calisan_Tc" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="Calisan_Rol" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Calisan_KullaniciAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Calisan_Sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Calisan_TelNo" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="Calisan_Eposta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Calisan_Adres" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Calisan_EnSonGiris" Type="DateTime" Precision="3" />
+          <Property Name="Calisan_EklenmeTarihi" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="numuneBilgileri">
+          <Key>
+            <PropertyRef Name="urun_Id" />
+          </Key>
+          <Property Name="urun_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="urun_Tarihi" Type="DateTime" Precision="3" />
+          <Property Name="urun_Kodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="urun_MPS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="urun_Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="urun_Firmasi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="urun_OnayDurumu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="urun_OnaylayanKisi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="urun_Aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KaliteKontrolOtomasyonuModelStoreContainer" CdmEntityContainer="KaliteKontrolOtomasyonuEntities">
+          <EntitySetMapping Name="calisanBilgileri">
+            <EntityTypeMapping TypeName="KaliteKontrolOtomasyonuModel.calisanBilgileri">
+              <MappingFragment StoreEntitySet="calisanBilgileri">
+                <ScalarProperty Name="Calisan_EklenmeTarihi" ColumnName="Calisan_EklenmeTarihi" />
+                <ScalarProperty Name="Calisan_EnSonGiris" ColumnName="Calisan_EnSonGiris" />
+                <ScalarProperty Name="Calisan_Adres" ColumnName="Calisan_Adres" />
+                <ScalarProperty Name="Calisan_Eposta" ColumnName="Calisan_Eposta" />
+                <ScalarProperty Name="Calisan_TelNo" ColumnName="Calisan_TelNo" />
+                <ScalarProperty Name="Calisan_Sifre" ColumnName="Calisan_Sifre" />
+                <ScalarProperty Name="Calisan_KullaniciAdi" ColumnName="Calisan_KullaniciAdi" />
+                <ScalarProperty Name="Calisan_Rol" ColumnName="Calisan_Rol" />
+                <ScalarProperty Name="Calisan_Tc" ColumnName="Calisan_Tc" />
+                <ScalarProperty Name="Calisan_Soyadi" ColumnName="Calisan_Soyadi" />
+                <ScalarProperty Name="Calisan_Adi" ColumnName="Calisan_Adi" />
+                <ScalarProperty Name="Calisan_Id" ColumnName="Calisan_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="numuneBilgileri">
+            <EntityTypeMapping TypeName="KaliteKontrolOtomasyonuModel.numuneBilgileri">
+              <MappingFragment StoreEntitySet="numuneBilgileri">
+                <ScalarProperty Name="urun_Aciklama" ColumnName="urun_Aciklama" />
+                <ScalarProperty Name="urun_OnaylayanKisi" ColumnName="urun_OnaylayanKisi" />
+                <ScalarProperty Name="urun_OnayDurumu" ColumnName="urun_OnayDurumu" />
+                <ScalarProperty Name="urun_Firmasi" ColumnName="urun_Firmasi" />
+                <ScalarProperty Name="urun_Adi" ColumnName="urun_Adi" />
+                <ScalarProperty Name="urun_MPS" ColumnName="urun_MPS" />
+                <ScalarProperty Name="urun_Kodu" ColumnName="urun_Kodu" />
+                <ScalarProperty Name="urun_Tarihi" ColumnName="urun_Tarihi" />
+                <ScalarProperty Name="urun_Id" ColumnName="urun_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
