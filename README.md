@@ -1,17 +1,25 @@
 #  🚀 İçerik
 
-Staj süresince çalışanların üreteceklerin numune için gerekli rapor dosyasının 
+Staj süresince çalışanların üreteceklerin numune için gerekli rapor dosyasının <br>
 güncellenmesini ve erişilmesini sağlayan otomasyon
 
+
 #  📋 Eklenebilecek Özellikler
-- Otomasyon kullanıcısının SQL veritabanı bağlantısının kurulum
-sonrası bağlantısının güncellenmesini sağlayacak eklenti
+- Otomasyon kullanıcısının SQL veritabanı bağlantısının kurulum<br>
+sonrası bağlantısının güncellenmesini sağlayacak eklenti<br>
 giriş sayfasında denenebilir
 
 
-#  👉🏼 Özellikler
-✅ - Yeni nesil kaltie kontrol dosyalarının tespiti
-✅ - Yeni nesil dosyaların içeriğine aktif çalışanın isminin yazılması
+
+#  👉🏼 Özellikler ve Kullanılan NuGet Packages
+- Önceden belirlenen ya da seçili klasör içeriğinin listelenmesi<br>
+- <b>FreeSpire.pdf</b>
+  - > Pdf dosyalarının panel üzerinde önizlemesi
+  - > Yeni nesil pdf dosyaların tespiti
+  - > Pdf dosyalarının içeriğinin güncellenmesi<br>
+- <b>EPPlus</b>
+  - > Numune verilerinin sql'den excel'e aktarılması
+
   
 #  📋 Arayüzler
 
